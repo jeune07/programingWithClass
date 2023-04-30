@@ -4,6 +4,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Prep1 World!");
+        Random randomGenerator=new Random();
+        int randomNumber=randomGenerator.Next(1,10);
+        Console.WriteLine("Guess a number between 1 and 10");
+        int userGuess=Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine(randomNumber);
+
     }
 }
