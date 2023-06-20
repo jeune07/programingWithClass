@@ -4,14 +4,14 @@ using System.Linq;
 
 public class Scripture
 {
-    private Random random;
+    private Random _random;
     
     public Reference Reference { get; }
     public List<Word> Words { get; }
     
     public Scripture(Reference reference, string text)
     {
-        random = new Random();
+        _random = new Random();
         Reference = reference;
         Words = CreateWordList(text);
     }
@@ -33,11 +33,11 @@ public class Scripture
     
     public void HideRandomWord()
     {
-        List<Word> visibleWords = Words.Where(w => w.IsHidden == false).ToList();
+        List<Word> visibleWords = Words.Where(w => !w.IsHidden).ToList();
 
         if (visibleWords.Count > 0)
         {
-            int randomIndex = random.Next(0, visibleWords.Count);
+            int randomIndex = _random.Next(0, visibleWords.Count);
             visibleWords[randomIndex].IsHidden = true;
         }
     }
