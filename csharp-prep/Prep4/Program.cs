@@ -2,23 +2,24 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-         Scripture scripture = new Scripture
-        {
-            Reference = "John 3:16",
-            Text = "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life."
-        };
+        Reference reference = new Reference("John", 3, 18);
+       
+        Scripture scripture = new Scripture(reference, "Whoever believes in Him is not condemned, but whoever does not believe has already been condemned, because he has not believed in the name of God's one and only Son.");
 
-        ScriptureManager scriptureManager = new ScriptureManager();
-        ConsoleManager consoleManager = new ConsoleManager();
+        Console.WriteLine($"Scripture Reference: {scripture}");
+        Console.WriteLine($"{reference.Book} {reference.Chapter} {reference.Verse}: {scripture.GetDisplayText()}");
 
-        while (!scriptureManager.AreAllWordsHidden(scripture))
+        Console.WriteLine("Press Enter to hide a random word or type 'quit' to exit.");
+        string input = Console.ReadLine();
+
+        while (input != "quit")
         {
-            consoleManager.ClearConsole();
-            consoleManager.DisplayScripture(scripture);
-            scriptureManager.HideRandomWords(scripture);
-            consoleManager.WaitForInput();
+            scripture.HideRandomWord();
+            Console.WriteLine($"{reference.Book} {reference.Chapter} {reference.Verse}: {scripture.GetDisplayText()}");
+
+            input = Console.ReadLine();
         }
     }
 }
