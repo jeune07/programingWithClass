@@ -15,8 +15,9 @@ public class BreathingActivity:MindfulnessActivity
 
     public void SetDuration(int newDuration)
     {
+
         _duration = newDuration;
-        Console.WriteLine("The new duration is " + _duration);
+        Console.WriteLine("We can start with  " + _duration + "S");
 
     }
 //Animation
@@ -30,9 +31,31 @@ public class BreathingActivity:MindfulnessActivity
        }
     }
 
-     
-    
-    // set the time 
+    //Count down
+ public  void pauseWithCountdown(int newSeconds)
+    {
+        for (int i = 0; i < (newSeconds/5); i++)
+        {
+            Console.Write("Breathing in... ");
+            for (int j = 5; j > 0; j--)
+            {
+                Console.Write("{0}   ", j);
+                Thread.Sleep(1000); // Pause for 1 second
+            }
+            Console.WriteLine(); // Move to the next line after the countdown is complete
 
-    // use the time in 
+            if (i < newSeconds - 1)
+            {
+                Console.Write("Breathing out... ");
+                for (int j = 5; j > 0; j--)
+                {
+                    Console.Write("{0}   ", j);
+                    Thread.Sleep(1000); // Pause for 1 second
+                }
+                Console.WriteLine(); // Move to the next line after the countdown is complete
+            }
+        }
+
+        Console.WriteLine("Well done");
+    }
 }
