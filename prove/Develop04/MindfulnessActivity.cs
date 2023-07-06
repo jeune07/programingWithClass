@@ -4,7 +4,7 @@ public class MindfulnessActivity
 {
     protected  int _duration;
     private string _description;
-    private string _startingMessage;
+    protected string _startingMessage;
     private string _finishingMessage;
 
     public int GetDuration()
@@ -61,7 +61,7 @@ public class MindfulnessActivity
 
     public void showStartingMessage()
     {
-        Console.WriteLine("This is the stating message");
+        
     }
 
     public void DisplayStartingMessage()
@@ -89,7 +89,7 @@ public class MindfulnessActivity
 
     public void pauseWithCountdown(int seconds)
     {
-        Console.WriteLine("This is the pauseWithCountdown  ");
+        Console.WriteLine("This is the pauseWithCountdown ");
         
     }
 }

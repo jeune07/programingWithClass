@@ -2,7 +2,10 @@ using System;
 
 public class BreathingActivity:MindfulnessActivity
 {
-    public BreathingActivity(int duration, string startingMessage, string finishingMessage, string description)
+    public String GetStartingMessage(){
+        return _startingMessage;
+    }
+       public BreathingActivity(int duration, string startingMessage, string finishingMessage, string description)
         : base(duration, startingMessage, finishingMessage, description)
         {
             
