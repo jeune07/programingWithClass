@@ -28,34 +28,33 @@ public class ReflectionActivity : MindfulnessActivity
     }
 
     public void BeginReflectionActivity()
+{
+    DisplayStartingMessage();
+    int durationInSeconds = GetDuration() * 60;
+    int remainingSeconds = durationInSeconds;
+    Random random = new Random();
+
+    while (remainingSeconds > 0)
     {
-        DisplayStartingMessage();
-        int durationInSeconds = GetDuration() * 60;
-        int remainingSeconds = durationInSeconds;
-        Random random = new Random();
+        string prompt = GetRandomPrompt(random);
+        string question = GetRandomQuestion(random);
 
-        while (remainingSeconds > 0)
+        Console.WriteLine("Prompt: " + prompt);
+        PauseWithSpinner(2); // Pause for 2 seconds (adjust as needed)
+        Console.WriteLine("Reflect on the following question:");
+        Console.WriteLine("Question: " + question);
+        PauseWithSpinner(5); // Pause for 5 seconds (adjust as needed)
+
+        remainingSeconds -= 7; // Adjusted time for prompt and question
+
+        if (remainingSeconds > 0)
         {
-            string prompt = GetRandomPrompt(random);
-            string question = GetRandomQuestion(random);
-
-            Console.WriteLine("Prompt: " + prompt);
-            PauseWithSpinner(2); // Pause for 2 seconds (adjust as needed)
-            Console.WriteLine("Reflect on the following question:");
-            Console.WriteLine("Question: " + question);
-            PauseWithSpinner(5); // Pause for 5 seconds (adjust as needed)
-
-            remainingSeconds -= 7; // Adjusted time for prompt and question
-
-            if (remainingSeconds > 0)
-            {
-                Console.Clear();
-                remainingSeconds -= 2; // Adjusted time for clearing console
-            }
+            Console.Clear();
+            remainingSeconds -= 2; // Adjusted time for clearing console
         }
-
-        ShowFinishingMessage(); // Add this line to display the finishing message
     }
+
+}
 
     private string GetRandomPrompt(Random random)
     {
