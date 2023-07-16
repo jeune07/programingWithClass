@@ -14,14 +14,14 @@ class Program
         double areaRectangle = rectangle.GetArea();
         // Console.WriteLine("The area of the retangle is:  "+ areaRectangle);
 
-        Circle circle = new Circle(10, "red");
+        //Circle circle = new Circle(10, "red");
 
 
         List<Shape> _listShape = new List<Shape>();
 
         _listShape.Add(square);
         _listShape.Add(rectangle);
-        _listShape.Add(circle);
+       // _listShape.Add(circle);
 
         Console.WriteLine(_listShape);
 

@@ -7,39 +7,49 @@ namespace GoalTrackerProgram
         private int _currentCount;
         private int _bonus;
 
-        public CheckList (string title, int targetCount, int value , int bonus) : base (title, value)
+        public CheckList(string title, string description, int value) : base(title, description, value)
         {
-            _targetCount = targetCount;
-            //_currentCount = value;
-            _bonus = bonus;
-
         }
 
-
-
-
-
-        public override bool IsComplete()
+        public override void GetDescription()
         {
-            return _currentCount >= _targetCount;
+            throw new NotImplementedException();
         }
 
-        public  string GetProgress()
-    {
-        return "Completed " + _currentCount + "/" + _targetCount + " times";
-    }
-    
+        public override string GetProgress()
+        {
+            throw new NotImplementedException();
+        }
 
-    public void RecordCompletion()
-    {
-        _currentCount++;
-    }
+        public override void GetTitle()
+        {
+            throw new NotImplementedException();
+        }
 
-    public int Bonus
-    {
-        get { return _bonus; }
-    }
+        public override void GetValue()
+        {
+            throw new NotImplementedException();
+        }
 
+        public override string IsComplete()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string SetDescription(string description)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string SetTitle(string title)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override int SetValue(int value)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

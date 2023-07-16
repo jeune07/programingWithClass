@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace goalTrakerProgram{
+namespace GoalTrackerProgram{
 
     public class GoalTracker{
 
@@ -19,9 +19,9 @@ namespace goalTrakerProgram{
 
         }
 
-        public void RecordEvent(Goal goal){
-            _score  += goal.Value;
-        }
+        // public void RecordEvent(){
+        //     _score  = goal.GetValue;
+        // }
 
         public void DisplayGoal(){
             foreach (Goal goal in _goals){
