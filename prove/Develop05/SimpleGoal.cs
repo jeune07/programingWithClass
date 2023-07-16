@@ -36,7 +36,7 @@ namespace GoalTrackerProgram
 
         public override int SetValue(int value)
         {   
-            Console.WriteLine("Please enter the Value of your Goal:");           
+            Console.WriteLine("What is the amount of point for this Goal ?: ");           
             //Convert the string to an integer
             return _value = int.Parse(Console.ReadLine());
         }

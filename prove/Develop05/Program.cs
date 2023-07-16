@@ -26,11 +26,22 @@ class Program
             }
             else if (_userGoalSelected == "2")
             {
-                // Code for creating an eternal goal
+                EternnalGoal eternnalGoal = new EternnalGoal("Study","everday this is not a description",10);
+                eternnalGoal.SetTitle("This is the title of the simple Goal");
+                eternnalGoal.SetDescription("jeune");
+                eternnalGoal.SetValue(10);  
+                GoalTracker goalTracker = new GoalTracker(0);
+                goalTracker.AddGoal(eternnalGoal);
+
             }
             else if (_userGoalSelected == "3")
             {
-                // Code for creating a checklist goal
+               CheckList checkList = new CheckList("Study","everday this is not a description",10,10,2,500);
+                checkList.SetTitle("This is the title of the simple Goal");
+                checkList.SetDescription("jeune");
+                checkList.SetValue(10);  
+                GoalTracker goalTracker = new GoalTracker(0);
+                goalTracker.AddGoal(checkList);
             }
         }
 
