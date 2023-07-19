@@ -1,50 +1,69 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
-namespace GoalTrackerProgram{
-
-    public class GoalTracker{
-
+namespace GoalTrackerProgram
+{
+    public class GoalTracker
+    {
         private List<Goal> _goals;
         private int _score;
 
-        public GoalTracker(int score){
+        public GoalTracker(int score)
+        {
             _score = score;
             _goals = new List<Goal>();
-
         }
 
-        public void  AddGoal(Goal goal){
+        public void AddGoal(Goal goal)
+        {
             _goals.Add(goal);
-
         }
 
-        // public void RecordEvent(){
-        //     _score  = goal.GetValue;
-        // }
-
-        public void DisplayGoal(){
-            foreach (Goal goal in _goals){
+        public void DisplayGoals()
+        {
+            foreach (Goal goal in _goals)
+            {
                 Console.WriteLine(goal.ToString());
             }
         }
 
-        public void DisplayScore(){
-            Console.WriteLine("The the actual scroe is " + _score);
+        public void DisplayScore()
+        {
+            Console.WriteLine("The current score is: " + _score);
         }
 
-         public void SaveData()
+        public void SaveData(string fileName)
         {
-            // Code to save goals and score to a file or database
+            using (StreamWriter writer = new StreamWriter(fileName))
+            {
+                foreach (Goal goal in _goals)
+                {
+                    writer.WriteLine(goal.Title);
+                    writer.WriteLine(goal.Description);
+                    writer.WriteLine(goal.Value);
+                    writer.WriteLine();
+                }
+            }
             Console.WriteLine("Data saved successfully.");
         }
 
-        public void LoadData()
+        public void LoadData(string fileName)
         {
-            // Code to load goals and score from a file or database
+            _goals.Clear();
+            using (StreamReader reader = new StreamReader(fileName))
+            {
+                while (!reader.EndOfStream)
+                {
+                    string title = reader.ReadLine();
+                    string description = reader.ReadLine();
+                    int value = int.Parse(reader.ReadLine());
+                    reader.ReadLine(); // Skip the empty line
+                    Goal goal = new SimpleGoal(title, description, value);
+                    _goals.Add(goal);
+                }
+            }
             Console.WriteLine("Data loaded successfully.");
         }
-
-        }
-
+    }
 }
