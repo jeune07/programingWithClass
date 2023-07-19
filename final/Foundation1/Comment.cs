@@ -6,9 +6,9 @@ class Comment
     public string Name { get; }
     public string Text { get; }
 
-    public Comment(string name, string text)
+    public Comment(string _name, string _text)
     {
-        Name = name;
-        Text = text;
+        Name = _name;
+        Text = _text;
     }
 }

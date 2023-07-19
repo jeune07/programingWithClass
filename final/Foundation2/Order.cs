@@ -6,48 +6,48 @@ class Order
     private List<Product> products;
     public Customer Customer { get; }
 
-    public Order(Customer customer)
+    public Order(Customer _customer)
     {
         products = new List<Product>();
-        Customer = customer;
+        Customer = _customer;
     }
 
-    public void AddProduct(Product product)
+    public void AddProduct(Product _product)
     {
-        products.Add(product);
+        products.Add(_product);
     }
 
     public decimal CalculateTotalPrice()
     {
-        decimal totalPrice = 0;
-        foreach (Product product in products)
+        decimal _totalPrice = 0;
+        foreach (Product _product in products)
         {
-            totalPrice += product.GetTotalPrice();
+            _totalPrice += _product.GetTotalPrice();
         }
 
-        decimal shippingCost = Customer.IsInUSA() ? 5 : 35;
-        totalPrice += shippingCost;
+        decimal _shippingCost = Customer.IsInUSA() ? 5 : 35;
+        _totalPrice += _shippingCost;
 
-        return totalPrice;
+        return _totalPrice;
     }
 
     public string GetPackingLabel()
     {
-        string packingLabel = "";
-        foreach (Product product in products)
+        string _packingLabel = "";
+        foreach (Product _product in products)
         {
-            packingLabel += $"Product: {product.Name}, ID: {product.ProductId}\n";
+            _packingLabel += $"Product: {_product.Name}, ID: {_product.ProductId}\n";
         }
 
-        return packingLabel;
+        return _packingLabel;
     }
 
     public string GetShippingLabel()
     {
-        string shippingLabel = "";
-        shippingLabel += $"Customer Name: {Customer.Name}\n";
-        shippingLabel += $"Address:\n{Customer.Address.GetAddressDetails()}";
+        string _shippingLabel = "";
+        _shippingLabel += $"Customer Name: {Customer.Name}\n";
+        _shippingLabel += $"Address:\n{Customer.Address.GetAddressDetails()}";
 
-        return shippingLabel;
+        return _shippingLabel;
     }
 }

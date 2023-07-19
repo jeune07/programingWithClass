@@ -4,19 +4,19 @@ class Program
 {
     static void Main(string[] args)
     {
-        Address address1 = new Address("123 Main St", "City 1", "State 1", "USA");
-        Customer customer1 = new Customer("John Doe", address1);
-        Order order1 = new Order(customer1);
+        Address _address1 = new Address("123 Main St", "City 1", "State 1", "USA");
+        Customer _customer1 = new Customer("John Doe", _address1);
+        Order _order1 = new Order(_customer1);
 
-        Product product1 = new Product("Product 1", "P1", 10.5m, 2);
-        Product product2 = new Product("Product 2", "P2", 15.25m, 3);
+        Product _product1 = new Product("Product 1", "P1", 10.5m, 2);
+        Product _product2 = new Product("Product 2", "P2", 15.25m, 3);
 
-        order1.AddProduct(product1);
-        order1.AddProduct(product2);
+        _order1.AddProduct(_product1);
+        _order1.AddProduct(_product2);
 
-        decimal totalPrice1 = order1.CalculateTotalPrice();
-        string packingLabel1 = order1.GetPackingLabel();
-        string shippingLabel1 = order1.GetShippingLabel();
+        decimal totalPrice1 = _order1.CalculateTotalPrice();
+        string packingLabel1 = _order1.GetPackingLabel();
+        string shippingLabel1 = _order1.GetShippingLabel();
 
         Console.WriteLine("Order 1:");
         Console.WriteLine("Total Price: $" + totalPrice1);
@@ -24,26 +24,26 @@ class Program
         Console.WriteLine("Shipping Label:\n" + shippingLabel1);
         Console.WriteLine();
 
-        Address address2 = new Address("456 Elm St", "City 2", "State 2", "Canada");
-        Customer customer2 = new Customer("Jane Smith", address2);
-        Order order2 = new Order(customer2);
+        Address _address2 = new Address("456 Elm St", "City 2", "State 2", "Canada");
+        Customer _customer2 = new Customer("Jane Smith", _address2);
+        Order _order2 = new Order(_customer2);
 
-        Product product3 = new Product("Product 3", "P3", 20.0m, 1);
-        Product product4 = new Product("Product 4", "P4", 12.75m, 2);
-        Product product5 = new Product("Product 5", "P5", 8.0m, 4);
+        Product _product3 = new Product("Product 3", "P3", 20.0m, 1);
+        Product _product4 = new Product("Product 4", "P4", 12.75m, 2);
+        Product _product5 = new Product("Product 5", "P5", 8.0m, 4);
 
-        order2.AddProduct(product3);
-        order2.AddProduct(product4);
-        order2.AddProduct(product5);
+        _order2.AddProduct(_product3);
+        _order2.AddProduct(_product4);
+        _order2.AddProduct(_product5);
 
-        decimal totalPrice2 = order2.CalculateTotalPrice();
-        string packingLabel2 = order2.GetPackingLabel();
-        string shippingLabel2 = order2.GetShippingLabel();
+        decimal _totalPrice2 = _order2.CalculateTotalPrice();
+        string _packingLabel2 = _order2.GetPackingLabel();
+        string _shippingLabel2 = _order2.GetShippingLabel();
 
         Console.WriteLine("Order 2:");
-        Console.WriteLine("Total Price: $" + totalPrice2);
-        Console.WriteLine("Packing Label:\n" + packingLabel2);
-        Console.WriteLine("Shipping Label:\n" + shippingLabel2);
+        Console.WriteLine("Total Price: $" + _totalPrice2);
+        Console.WriteLine("Packing Label:\n" + _packingLabel2);
+        Console.WriteLine("Shipping Label:\n" + _shippingLabel2);
         Console.WriteLine();
     }
 }

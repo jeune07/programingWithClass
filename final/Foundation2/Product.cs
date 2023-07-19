@@ -8,12 +8,12 @@ class Product
     public decimal Price { get; }
     public int Quantity { get; }
 
-    public Product(string name, string productId, decimal price, int quantity)
+    public Product(string _name, string _productId, decimal _price, int _quantity)
     {
-        Name = name;
-        ProductId = productId;
-        Price = price;
-        Quantity = quantity;
+        Name = _name;
+        ProductId = _productId;
+        Price = _price;
+        Quantity = _quantity;
     }
 
     public decimal GetTotalPrice()

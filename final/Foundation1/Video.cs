@@ -8,17 +8,17 @@ class Video
     public int Length { get; }
     private List<Comment> comments;
 
-    public Video(string title, string author, int length)
+    public Video(string _title, string _author, int _length)
     {
-        Title = title;
-        Author = author;
-        Length = length;
+        Title = _title;
+        Author = _author;
+        Length = _length;
         comments = new List<Comment>();
     }
 
-    public void AddComment(string name, string text)
+    public void AddComment(string _name, string _text)
     {
-        Comment comment = new Comment(name, text);
+        Comment comment = new Comment(_name, _text);
         comments.Add(comment);
     }
 
